@@ -50,7 +50,7 @@ module Gitjour
         system("git remote add #{name_of_share} git://#{host}/")
       end
 
-      def serve(path, share_name = nil, *rest)
+      def serve(path = nil, share_name = nil, *rest)
         path ||= Dir.pwd
         path = File.expand_path(path)
         File.exists?("#{path}/.git") ? announce_repo(path, share_name) : Dir["#{path}/*"].each{|dir| announce_repo(dir) if File.directory?(dir)}
