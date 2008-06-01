@@ -36,7 +36,6 @@ module Gitjour
       def get_host_and_share(repository_name)
         name_of_share = repository_name || fail("You have to pass in a name")
         host = service_list(name_of_share).detect{|service| service.name == name_of_share}.host rescue exit_with!("Couldn't find #{name_of_share}")
-        system("git clone git://#{host}/ #{name_of_share}/")  
         [host, name_of_share]
       end
 
