@@ -1,7 +1,9 @@
 #!/usr/bin/env ruby
 require 'rubygems'
 require 'gitjour'
+
 trap "INT" do
   exit!
 end
+
 Gitjour::Application.run(*ARGV)
